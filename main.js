@@ -70,7 +70,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
-  0.01,
+  0.001,
   1000
 );
 let defaultCameraPos = {
@@ -103,8 +103,8 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const controls = new OrbitControls(camera, renderer.domElement);
 // controls.enableDamping = true;
 controls.enablePan = false;
-controls.minDistance = 0.9;
-controls.maxDistance = 1.6;
+controls.minDistance = 0.5;
+controls.maxDistance = 2.6;
 controls.minAzimuthAngle = 0.2;
 controls.maxAzimuthAngle = Math.PI * 0.78;
 controls.minPolarAngle = 0.3;
@@ -118,7 +118,7 @@ dracoLoader.setDecoderPath('draco/');
 const gltfLoader = new GLTFLoader();
 gltfLoader.setDRACOLoader(dracoLoader);
 gltfLoader.load(
-  'models/room.glb',
+  'models/DragonAttenuation.glb',
   function (room) {
     // hide loader on loade
     loaderWrapper.style.display = 'none';
